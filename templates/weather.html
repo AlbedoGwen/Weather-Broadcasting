@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Weather in {{ city }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather in {{ city }}</h1>
+        <pre class="weather-box">{{ weather_report }}</pre>
+        <a href="/" class="back-link">← Back</a>
+    </div>
+</body>
+</html>
