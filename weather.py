@@ -12,7 +12,7 @@ def Gen_report(C):
     try:
         data = requests.get(url)
         T = data.text
-    except:
+    except: 
         T = "Error Occurred"
     print(T)
     
