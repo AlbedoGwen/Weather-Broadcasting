@@ -6,10 +6,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Weather in {{ city }}</h1>
-        <pre class="weather-box">{{ weather_report }}</pre>
-        <a href="/" class="back-link">← Back</a>
+    <canvas id="circuitCanvas"></canvas> <!-- animated background -->
+    <div class="cyber-container">
+        <h1 class="cyber-title" data-text="Weather in {{ city }}">{{ city }}</h1>
+        <div id="weatherResult">
+            <pre class="weather-day">{{ weather_report }}</pre>
+        </div>
+        <a href="/" class="cyber-button">← Back</a>
     </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
