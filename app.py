@@ -1,30 +1,33 @@
-from flask import Flask, render_template, request
-import requests
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Weather Broadcasting</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Check </h1>
+        <form action="/weather" method="POST" id="weatherForm">
+            <input type="text" name="city" placeholder="Enter a city name" required>
+            <button type="submit">Submit !!</button>
+        </form>
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+    </div>
 
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/weather', methods=['POST'])
-def weather():
-    city = request.form['city']
-    url = f"https://wttr.in/{city}?T"  
-    response = requests.get(url)
-
-    if response.status_code == 200:
-        weather_report = response.text
-
-        # Remove unwanted promotional line
-        lines = weather_report.split('\n')
-        lines = [line for line in lines if "Follow @igor_chubin" not in line]
-        weather_report = '\n'.join(lines)
-    else:
-        weather_report = "Sorry, weather data is not available at the moment."
-
-    return render_template('weather.html', city=city.capitalize(), weather_report=weather_report)
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
+    <script>
+        document.getElementById('weatherForm').addEventListener('submit', function(e) {
+            const loading = document.getElementById('loading');
+            loading.style.display = 'block';
+            this.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
