@@ -21,7 +21,7 @@ body {
     max-width: 1000px;
 }
 
-.cyber-title {
+/* .cyber-title {
     font-size: 3.5rem;
     margin-bottom: 2rem;
     text-transform: uppercase;
@@ -32,7 +32,7 @@ body {
         0 0 10px #ff00ff, 
         0 0 20px #ff00ff,
         0 0 30px #ff00ff;
-    animation: pulse 3s infinite alternate;
+    animation: pulse 3s infinite alternate; 
 }
 
 .cyber-title::before {
@@ -45,7 +45,7 @@ body {
     color: #ff00ff;
     overflow: hidden;
     animation: animateText 6s linear infinite;
-}
+} */
 
 /* Weather Grid Container */
 .weather-grid {
